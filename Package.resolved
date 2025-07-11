@@ -1,0 +1,15 @@
+{
+  "originHash" : "38e2431a982fd762d147fa21914abf44a8ed6e99cac27bd5e6ed47e6df927b2f",
+  "pins" : [
+    {
+      "identity" : "swift-fmk-plat-dexp-teste-sgrott",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/dsgrott/swift-fmk-plat-dexp-teste-sgrott.git",
+      "state" : {
+        "revision" : "f9e705087200079456b503a6018a2539a94ccbdd",
+        "version" : "1.0.0"
+      }
+    }
+  ],
+  "version" : 3
+}

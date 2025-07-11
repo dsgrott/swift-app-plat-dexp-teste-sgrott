@@ -1,0 +1,17 @@
+default_platform(:ios)
+
+platform :ios do
+  desc "Build do AppConsumer"
+  lane :build do
+    Dir.chdir("..") do  # volta para a raiz do projeto
+      sh "xcodebuild -scheme AppConsumer -destination 'platform=iOS Simulator,name=iPhone 16 Pro' build"
+    end
+  end
+
+  desc "Rodar testes"
+  lane :test do
+    Dir.chdir("..") do  # volta para a raiz do projeto
+      sh "xcodebuild -scheme AppConsumer -destination 'platform=iOS Simulator,name=iPhone 16 Pro' test"
+    end
+  end
+end
