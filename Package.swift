@@ -2,31 +2,39 @@
 import PackageDescription
 
 let package = Package(
-    name: "AppConsumer",
+    name: "swift-app-plat-dexp-teste-sgrott",
     platforms: [
         .iOS(.v15)
     ],
     products: [
         .executable(
-            name: "AppConsumer",
-            targets: ["AppConsumer"]
+            name: "App",
+            targets: ["App"]
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/dsgrott/swift-fmk-plat-dexp-teste-sgrott.git", from: "1.0.0")
+        .package(url: "https://github.com/dsgrott/swift-fmk-plat-dexp-teste-sgrott.git", from: "1.1.0")
     ],
     targets: [
         .executableTarget(
-            name: "AppConsumer",
+            name: "App",
             dependencies: [
                 .product(name: "FrameworkExample", package: "swift-fmk-plat-dexp-teste-sgrott")
             ],
-            path: "Sources"
+            path: "Sources/App",
+            resources: [
+                .process("Assets.xcassets")
+            ]
         ),
         .testTarget(
-            name: "AppConsumerTests",
-            dependencies: ["AppConsumer"],
+            name: "AppTests",
+            dependencies: ["App"],
             path: "Tests"
-        )
+        ),
+        .testTarget(
+               name: "AppUITests",
+               dependencies: ["App"],
+               path: "UITests"
+           )
     ]
 )

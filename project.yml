@@ -1,0 +1,45 @@
+name: swift-app-plat-dexp-teste-sgrott
+options:
+  bundleIdPrefix: com.danilo
+  deploymentTarget:
+    iOS: '15.0'
+
+configs:
+  Debug: debug
+  Release: release
+
+packages:
+  swift-fmk-plat-dexp-teste-sgrott:
+    url: https://github.com/dsgrott/swift-fmk-plat-dexp-teste-sgrott.git
+    from: 1.1.0
+
+targets:
+  App:
+    type: application
+    platform: iOS
+    sources: [Sources/App]
+    resources: [Sources/App/Assets.xcassets]
+    dependencies:
+      - product: FrameworkExample
+        package: swift-fmk-plat-dexp-teste-sgrott
+    info:
+      path: Sources/App/Info.plist
+    scheme:
+      testTargets:
+        - AppTests
+        - AppUITests
+
+  AppTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources: [Tests]
+    dependencies:
+      - target: App
+
+  AppUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources: [UITests]
+    dependencies:
+      - target: App
+
